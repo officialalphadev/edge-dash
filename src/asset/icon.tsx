@@ -1,8 +1,6 @@
-import { FC, SVGProps } from "react";
+import { SVGProps } from "react";
 
-interface IIconSvg extends SVGProps<SVGSVGElement> {}
-
-export const IconClose: FC<IIconSvg> = (props) => (
+export const IconClose = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -13,7 +11,7 @@ export const IconClose: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconDelete: FC<IIconSvg> = (props) => (
+export const IconDelete = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M14.74 9L14.394 18M9.606 18L9.26 9M19.228 5.79C19.57 5.842 19.91 5.897 20.25 5.956M19.228 5.791L18.16 19.673C18.1164 20.2382 17.8611 20.7662 17.445 21.1512C17.029 21.5363 16.4829 21.7502 15.916 21.75H8.084C7.5171 21.7502 6.97102 21.5363 6.55498 21.1512C6.13894 20.7662 5.88359 20.2382 5.84 19.673L4.772 5.79M19.228 5.79C18.0739 5.61552 16.9138 5.48309 15.75 5.393M3.75 5.955C4.09 5.896 4.43 5.841 4.772 5.79M4.772 5.79C5.92613 5.61552 7.08623 5.4831 8.25 5.393M15.75 5.393V4.477C15.75 3.297 14.84 2.313 13.66 2.276C12.5536 2.24064 11.4464 2.24064 10.34 2.276C9.16 2.313 8.25 3.298 8.25 4.477V5.393M15.75 5.393C13.2537 5.20008 10.7463 5.20008 8.25 5.393"
@@ -25,7 +23,7 @@ export const IconDelete: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconEdit: FC<IIconSvg> = (props) => (
+export const IconEdit = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M16.862 4.487L19.5 7.125M18 14V18.75C18 19.3467 17.7629 19.919 17.341 20.341C16.919 20.7629 16.3467 21 15.75 21H5.25C4.65326 21 4.08097 20.7629 3.65901 20.341C3.23705 19.919 3 19.3467 3 18.75V8.25C3 7.65326 3.23705 7.08097 3.65901 6.65901C4.08097 6.23705 4.65326 6 5.25 6H10M16.862 4.487L18.549 2.799C18.9007 2.44732 19.3777 2.24975 19.875 2.24975C20.3723 2.24975 20.8493 2.44732 21.201 2.799C21.5527 3.15068 21.7502 3.62765 21.7502 4.125C21.7502 4.62235 21.5527 5.09932 21.201 5.451L10.582 16.07C10.0533 16.5984 9.40137 16.9867 8.685 17.2L6 18L6.8 15.315C7.01328 14.5986 7.40163 13.9467 7.93 13.418L16.862 4.487V4.487Z"
@@ -37,7 +35,7 @@ export const IconEdit: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconEllipsisVertical: FC<IIconSvg> = (props) => (
+export const IconEllipsisVertical = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -48,7 +46,7 @@ export const IconEllipsisVertical: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconError: FC<IIconSvg> = (props) => (
+export const IconError = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -59,7 +57,7 @@ export const IconError: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconEvent: FC<IIconSvg> = (props) => (
+export const IconEvent = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M6.75 3V5.25M17.25 3V5.25M3 18.75V7.5C3 6.90326 3.23705 6.33097 3.65901 5.90901C4.08097 5.48705 4.65326 5.25 5.25 5.25H18.75C19.3467 5.25 19.919 5.48705 20.341 5.90901C20.7629 6.33097 21 6.90326 21 7.5V18.75M3 18.75C3 19.3467 3.23705 19.919 3.65901 20.341C4.08097 20.7629 4.65326 21 5.25 21H18.75C19.3467 21 19.919 20.7629 20.341 20.341C20.7629 19.919 21 19.3467 21 18.75M3 18.75V11.25C3 10.6533 3.23705 10.081 3.65901 9.65901C4.08097 9.23705 4.65326 9 5.25 9H18.75C19.3467 9 19.919 9.23705 20.341 9.65901C20.7629 10.081 21 10.6533 21 11.25V18.75M12 12.75H12.008V12.758H12V12.75ZM12 15H12.008V15.008H12V15ZM12 17.25H12.008V17.258H12V17.25ZM9.75 15H9.758V15.008H9.75V15ZM9.75 17.25H9.758V17.258H9.75V17.25ZM7.5 15H7.508V15.008H7.5V15ZM7.5 17.25H7.508V17.258H7.5V17.25ZM14.25 12.75H14.258V12.758H14.25V12.75ZM14.25 15H14.258V15.008H14.25V15ZM14.25 17.25H14.258V17.258H14.25V17.25ZM16.5 12.75H16.508V12.758H16.5V12.75ZM16.5 15H16.508V15.008H16.5V15Z"
@@ -71,7 +69,7 @@ export const IconEvent: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconHome: FC<IIconSvg> = (props) => (
+export const IconHome = (props: SVGProps<SVGSVGElement>) => (
   <svg fill="none" viewBox="0 0 24 24" {...props}>
     <path
       strokeWidth="1.5"
@@ -83,7 +81,7 @@ export const IconHome: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconInfo: FC<IIconSvg> = (props) => (
+export const IconInfo = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -94,7 +92,7 @@ export const IconInfo: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconInfoOutline: FC<IIconSvg> = (props) => (
+export const IconInfoOutline = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 17 16" fill="none" {...props}>
     <path
       d="M7.68182 7.5L7.70916 7.48667C7.79464 7.44396 7.89058 7.42664 7.9856 7.43677C8.08062 7.4469 8.17075 7.48404 8.24532 7.54381C8.31989 7.60357 8.37576 7.68345 8.40633 7.77399C8.43691 7.86453 8.44089 7.96193 8.41782 8.05467L7.94582 9.94533C7.92259 10.0381 7.92645 10.1356 7.95695 10.2263C7.98745 10.3169 8.04332 10.3969 8.11792 10.4568C8.19251 10.5166 8.28271 10.5538 8.37782 10.564C8.47293 10.5741 8.56895 10.5568 8.65449 10.514L8.68182 10.5M14.1818 8C14.1818 8.78793 14.0266 9.56815 13.7251 10.2961C13.4236 11.0241 12.9816 11.6855 12.4245 12.2426C11.8673 12.7998 11.2059 13.2417 10.4779 13.5433C9.74997 13.8448 8.96976 14 8.18182 14C7.39389 14 6.61368 13.8448 5.88572 13.5433C5.15777 13.2417 4.49633 12.7998 3.93918 12.2426C3.38203 11.6855 2.94007 11.0241 2.63855 10.2961C2.33702 9.56815 2.18182 8.78793 2.18182 8C2.18182 6.4087 2.81396 4.88258 3.93918 3.75736C5.0644 2.63214 6.59052 2 8.18182 2C9.77312 2 11.2992 2.63214 12.4245 3.75736C13.5497 4.88258 14.1818 6.4087 14.1818 8ZM8.18182 5.5H8.18716V5.50533H8.18182V5.5Z"
@@ -106,7 +104,7 @@ export const IconInfoOutline: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconLoading: FC<IIconSvg> = (props) => (
+export const IconLoading = (props: SVGProps<SVGSVGElement>) => (
   <svg fill="none" viewBox="0 0 24 24" {...props}>
     <path
       stroke="currentColor"
@@ -118,7 +116,7 @@ export const IconLoading: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconLogout: FC<IIconSvg> = (props) => (
+export const IconLogout = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M16.9091 9V5.25C16.9091 4.65326 16.6505 4.08097 16.1902 3.65901C15.7299 3.23705 15.1055 3 14.4545 3H5.45455C4.80356 3 4.17924 3.23705 3.71892 3.65901C3.2586 4.08097 3 4.65326 3 5.25V18.75C3 19.3467 3.2586 19.919 3.71892 20.341C4.17924 20.7629 4.80356 21 5.45455 21H14.4545C15.1055 21 15.7299 20.7629 16.1902 20.341C16.6505 19.919 16.9091 19.3467 16.9091 18.75V15M10.3636 9L7.09091 12M7.09091 12L10.3636 15M7.09091 12H21"
@@ -130,7 +128,7 @@ export const IconLogout: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconMenu: FC<IIconSvg> = (props) => (
+export const IconMenu = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -141,7 +139,7 @@ export const IconMenu: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconNotification: FC<IIconSvg> = (props) => (
+export const IconNotification = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M14.857 17.082C16.7202 16.8614 18.5509 16.4217 20.311 15.772C18.8204 14.1208 17.9967 11.9745 18 9.75V9.05V9C18 7.4087 17.3679 5.88258 16.2426 4.75736C15.1174 3.63214 13.5913 3 12 3C10.4087 3 8.88258 3.63214 7.75736 4.75736C6.63214 5.88258 6 7.4087 6 9V9.75C6.00302 11.9746 5.17899 14.121 3.688 15.772C5.421 16.412 7.248 16.857 9.143 17.082M14.857 17.082C12.959 17.3071 11.041 17.3071 9.143 17.082M14.857 17.082C15.0011 17.5319 15.0369 18.0094 14.9616 18.4757C14.8862 18.942 14.7018 19.384 14.4234 19.7656C14.1449 20.1472 13.7803 20.4576 13.3592 20.6716C12.9381 20.8856 12.4724 20.9972 12 20.9972C11.5276 20.9972 11.0619 20.8856 10.6408 20.6716C10.2197 20.4576 9.85507 20.1472 9.57662 19.7656C9.29817 19.384 9.11376 18.942 9.03841 18.4757C8.96306 18.0094 8.9989 17.5319 9.143 17.082"
@@ -153,7 +151,7 @@ export const IconNotification: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconSetting: FC<IIconSvg> = (props) => (
+export const IconSetting = (props: SVGProps<SVGSVGElement>) => (
   <svg
     fill="none"
     viewBox="0 0 24 24"
@@ -174,7 +172,7 @@ export const IconSetting: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconSuccess: FC<IIconSvg> = (props) => (
+export const IconSuccess = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -185,7 +183,7 @@ export const IconSuccess: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconUser: FC<IIconSvg> = (props) => (
+export const IconUser = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -196,7 +194,7 @@ export const IconUser: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconUsers: FC<IIconSvg> = (props) => (
+export const IconUsers = (props: SVGProps<SVGSVGElement>) => (
   <svg fill="none" viewBox="0 0 24 24" {...props}>
     <path
       strokeWidth="1.5"
@@ -208,7 +206,7 @@ export const IconUsers: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconWarning: FC<IIconSvg> = (props) => (
+export const IconWarning = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -219,7 +217,7 @@ export const IconWarning: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconPortfolio: FC<IIconSvg> = (props) => (
+export const IconPortfolio = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M8.25 7.5V6.108C8.25 4.973 9.095 4.01 10.226 3.916C10.599 3.886 10.974 3.859 11.349 3.836M15.75 18H18C18.5967 18 19.169 17.7629 19.591 17.341C20.0129 16.919 20.25 16.3467 20.25 15.75V6.108C20.25 4.973 19.405 4.01 18.274 3.916C17.9 3.88498 17.5256 3.85831 17.151 3.836M17.151 3.836C17.009 3.3767 16.7226 2.97493 16.3357 2.68954C15.9489 2.40414 15.4808 2.25011 15 2.25H13.5C13.0192 2.25011 12.5511 2.40414 12.1643 2.68954C11.7774 2.97493 11.492 3.3767 11.35 3.836C11.285 4.046 11.25 4.269 11.25 4.5V5.25H17.25V4.5C17.25 4.269 17.216 4.046 17.151 3.836ZM15.75 18.75V16.875C15.75 15.9799 15.3944 15.1215 14.7615 14.4885C14.1285 13.8556 13.2701 13.5 12.375 13.5H10.875C10.5766 13.5 10.2905 13.3815 10.0795 13.1705C9.86853 12.9595 9.75 12.6734 9.75 12.375V10.875C9.75 9.97989 9.39442 9.12145 8.76149 8.48851C8.12855 7.85558 7.27011 7.5 6.375 7.5H5.25M6.75 7.5H4.875C4.254 7.5 3.75 8.004 3.75 8.625V20.625C3.75 21.246 4.254 21.75 4.875 21.75H14.625C15.246 21.75 15.75 21.246 15.75 20.625V16.5C15.75 14.1131 14.8018 11.8239 13.114 10.136C11.4261 8.44821 9.13695 7.5 6.75 7.5Z"
@@ -231,7 +229,7 @@ export const IconPortfolio: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconChevronBottom: FC<IIconSvg> = (props) => (
+export const IconChevronBottom = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 20 20" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -242,7 +240,7 @@ export const IconChevronBottom: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconFlashsale: FC<IIconSvg> = (props) => (
+export const IconFlashsale = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M11 5.88218V19.2402C11 20.2121 10.2121 21 9.24018 21C8.49646 21 7.83302 20.5325 7.58288 19.8321L5.43647 13.6829M18 13C19.6569 13 21 11.6569 21 10C21 8.34315 19.6569 7 18 7M5.43647 13.6829C4.0043 13.0741 3 11.6543 3 10C3 7.79086 4.79086 6 6.99999 6H8.83208C12.9327 6 16.4569 4.7659 18 3L18 17C16.4569 15.2341 12.9327 14 8.83208 14L6.99998 14C6.44518 14 5.91677 13.887 5.43647 13.6829Z"
@@ -254,7 +252,7 @@ export const IconFlashsale: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconNewsletter: FC<IIconSvg> = (props) => (
+export const IconNewsletter = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M19 21H5C3.89543 21 3 19.9926 3 18.75L3 5.25C3 4.00736 3.89543 3 5 3L15 3C16.1046 3 17 4.00736 17 5.25V6.375M19 21C17.8954 21 17 19.9926 17 18.75L17 6.375M19 21C20.1046 21 21 19.9926 21 18.75V8.625C21 7.38236 20.1046 6.375 19 6.375L17 6.375M13 3L9 3M7 16.5H13M7 7.5H13V12H7V7.5Z"
@@ -266,7 +264,7 @@ export const IconNewsletter: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconProfile: FC<IIconSvg> = (props) => (
+export const IconProfile = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M17.982 18.725C17.2833 17.7999 16.3793 17.0496 15.3412 16.5334C14.3031 16.0171 13.1594 15.7489 12 15.75C10.8407 15.7489 9.6969 16.0171 8.65883 16.5334C7.62077 17.0496 6.71675 17.7999 6.01801 18.725M17.981 18.725C19.3445 17.5122 20.3071 15.9136 20.7412 14.1411C21.1753 12.3686 21.0603 10.5061 20.4115 8.80048C19.7627 7.09487 18.6107 5.62678 17.1084 4.5909C15.6061 3.55502 13.8244 3.00029 11.9995 3.00029C10.1747 3.00029 8.39295 3.55502 6.89062 4.5909C5.38829 5.62678 4.23634 7.09487 3.58755 8.80048C2.93875 10.5061 2.82376 12.3686 3.25783 14.1411C3.6919 15.9136 4.65451 17.5122 6.01801 18.725M17.981 18.725C16.335 20.1932 14.2056 21.0031 12 21C9.79404 21.0034 7.66425 20.1934 6.01801 18.725M15 9.75C15 10.5456 14.6839 11.3087 14.1213 11.8713C13.5587 12.4339 12.7957 12.75 12 12.75C11.2044 12.75 10.4413 12.4339 9.87869 11.8713C9.31608 11.3087 9.00001 10.5456 9.00001 9.75C9.00001 8.95435 9.31608 8.19129 9.87869 7.62868C10.4413 7.06607 11.2044 6.75 12 6.75C12.7957 6.75 13.5587 7.06607 14.1213 7.62868C14.6839 8.19129 15 8.95435 15 9.75V9.75Z"
@@ -278,7 +276,7 @@ export const IconProfile: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconRole: FC<IIconSvg> = (props) => (
+export const IconRole = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M10 6H5C3.89543 6 3 6.89543 3 8V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V8C21 6.89543 20.1046 6 19 6H14M10 6V5C10 3.89543 10.8954 3 12 3C13.1046 3 14 3.89543 14 5V6M10 6C10 7.10457 10.8954 8 12 8C13.1046 8 14 7.10457 14 6M9 14C10.1046 14 11 13.1046 11 12C11 10.8954 10.1046 10 9 10C7.89543 10 7 10.8954 7 12C7 13.1046 7.89543 14 9 14ZM9 14C10.3062 14 11.4174 14.8348 11.8292 16M9 14C7.69378 14 6.58249 14.8348 6.17065 16M15 11H18M15 15H17"
@@ -290,7 +288,7 @@ export const IconRole: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconSearch: FC<IIconSvg> = (props) => (
+export const IconSearch = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 20 20" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -301,7 +299,7 @@ export const IconSearch: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconChevronLeft: FC<IIconSvg> = (props) => (
+export const IconChevronLeft = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 16 16" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -312,7 +310,7 @@ export const IconChevronLeft: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconChevronRight: FC<IIconSvg> = (props) => (
+export const IconChevronRight = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 17 16" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -323,7 +321,7 @@ export const IconChevronRight: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconEllipsisHorizontal: FC<IIconSvg> = (props) => (
+export const IconEllipsisHorizontal = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 21 20" fill="none" {...props}>
     <path
       fillRule="evenodd"
@@ -334,7 +332,7 @@ export const IconEllipsisHorizontal: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconAdd: FC<IIconSvg> = (props) => (
+export const IconAdd = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 20 20" fill="none" {...props}>
     <path
       d="M10 3.75V16.25M16.25 10H3.75"
@@ -346,7 +344,7 @@ export const IconAdd: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconUpload: FC<IIconSvg> = (props) => (
+export const IconUpload = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 20 20" fill="none" {...props}>
     <path
       d="M2.5 13.75V15.625C2.5 16.1223 2.69754 16.5992 3.04917 16.9508C3.40081 17.3025 3.87772 17.5 4.375 17.5H15.625C16.1223 17.5 16.5992 17.3025 16.9508 16.9508C17.3025 16.5992 17.5 16.1223 17.5 15.625V13.75M6.25 6.25L10 2.5M10 2.5L13.75 6.25M10 2.5V13.75"
@@ -358,7 +356,7 @@ export const IconUpload: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconDocument: FC<IIconSvg> = (props) => (
+export const IconDocument = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       strokeWidth="1.5"
@@ -370,7 +368,7 @@ export const IconDocument: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconLink: FC<IIconSvg> = (props) => (
+export const IconLink = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       strokeWidth="1.5"
@@ -382,7 +380,7 @@ export const IconLink: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconTime: FC<IIconSvg> = (props) => (
+export const IconTime = (props: SVGProps<SVGSVGElement>) => (
   <svg fill="none" viewBox="0 0 24 24" {...props}>
     <path
       strokeWidth="1.5"
@@ -394,7 +392,7 @@ export const IconTime: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconMedia: FC<IIconSvg> = (props) => (
+export const IconMedia = (props: SVGProps<SVGSVGElement>) => (
   <svg fill="none" viewBox="0 0 24 24" {...props}>
     <path
       strokeWidth="1.5"
@@ -406,7 +404,7 @@ export const IconMedia: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconView: FC<IIconSvg> = (props) => (
+export const IconView = (props: SVGProps<SVGSVGElement>) => (
   <svg
     fill="none"
     viewBox="0 0 24 24"
@@ -427,7 +425,7 @@ export const IconView: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconCheck: FC<IIconSvg> = (props) => (
+export const IconCheck = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 16 16" fill="none" {...props}>
     <path
       d="M3 8.5L7 12.5L13 3.5"
@@ -439,7 +437,7 @@ export const IconCheck: FC<IIconSvg> = (props) => (
   </svg>
 );
 
-export const IconFaq: FC<IIconSvg> = (props) => (
+export const IconFaq = (props: SVGProps<SVGSVGElement>) => (
   <svg fill="none" viewBox="0 0 24 24" {...props}>
     <path
       stroke="currentColor"

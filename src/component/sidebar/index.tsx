@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import {
   IconChevronBottom,
@@ -14,18 +13,20 @@ import {
   IconPortfolio,
   IconSetting,
 } from "@/asset/icon";
-import { useEffect, useState } from "react";
+import React, { SVGProps, useEffect, useState } from "react";
+import { cn } from "@/lib";
+import { motion, AnimatePresence } from "framer-motion";
 
 const menus = [
   {
     href: "/",
     name: "Dashboard",
-    icon: <IconHome className={`h-6 w-6 flex-none`} />,
+    icon: IconHome,
   },
   {
     href: "auth",
     name: "Authentication",
-    icon: <IconLogout className={`h-6 w-6 flex-none`} />,
+    icon: IconLogout,
     items: [
       {
         href: "/auth/signin",
@@ -40,12 +41,12 @@ const menus = [
   {
     href: "/medias",
     name: "Media",
-    icon: <IconMedia className={`h-6 w-6 flex-none`} />,
+    icon: IconMedia,
   },
   {
     href: "events",
     name: "Event",
-    icon: <IconEvent className={`h-6 w-6 flex-none`} />,
+    icon: IconEvent,
     items: [
       {
         href: "/events/flashsales",
@@ -64,17 +65,17 @@ const menus = [
   {
     href: "/portfolios",
     name: "Portofolio",
-    icon: <IconPortfolio className={`h-6 w-6 flex-none`} />,
+    icon: IconPortfolio,
   },
   {
     href: "/faqs",
     name: "FAQ",
-    icon: <IconFaq className={`h-6 w-6 flex-none`} />,
+    icon: IconFaq,
   },
   {
     href: "settings",
     name: "Pengaturan",
-    icon: <IconSetting className={`h-6 w-6 flex-none`} />,
+    icon: IconSetting,
     items: [
       {
         href: "/settings/profiles",
@@ -106,14 +107,10 @@ export function DefaultSidebar() {
           />
           <h1 className="font-semibold">Edge Dash</h1>
         </div>
-        <div className="scrollbar h-full space-y-2 overflow-y-auto px-4 py-5 duration-300">
-          {menus.map(({ href, icon, name, items }) => {
-            if (!items) {
-              return <SingleSideMenu key={name} data={{ href, icon, name }} />;
-            }
-            return (
-              <MultiSideMenu key={name} data={{ icon, href, name, items }} />
-            );
+        <div className="h-full space-y-2 overflow-y-auto px-4 py-5 duration-300">
+          {menus.map(({ items, ...menu }, index) => {
+            if (!items) return <SingleSideMenu key={index} data={menu} />;
+            return <MultiSideMenu key={index} data={{ items, ...menu }} />;
           })}
         </div>
       </div>
@@ -124,62 +121,33 @@ export function DefaultSidebar() {
 type typeSideMenu = {
   data: {
     href: string;
-    icon: JSX.Element;
+    icon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
     name: string;
     items?: { href: string; name: string }[];
   };
 };
 
-const SingleSideMenu = ({ data: { href, icon, name } }: typeSideMenu) => {
+const SingleSideMenu = ({ data: { href, icon: Icon, name } }: typeSideMenu) => {
   const pathname = usePathname();
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+    <Link
+      href={href}
+      className={cn(
+        "flex items-center gap-2 rounded-xl p-4 text-sm font-medium duration-300",
+        pathname === href && "bg-brand-50/50 text-brand-500",
+        pathname !== href && "text-gray-500 hover:bg-gray-50",
+      )}
     >
-      <Link
-        href={href}
-        className={`${
-          pathname === href
-            ? "bg-brand-50/50 text-brand-500"
-            : "text-gray-500 hover:bg-gray-50"
-        } flex h-12 items-center overflow-hidden rounded-xl px-3 text-sm font-medium duration-300`}
-      >
-        {icon}
-        <span className="ml-3 whitespace-nowrap">{name}</span>
-      </Link>
-    </motion.div>
+      <Icon className="size-5" />
+      <span className="whitespace-nowrap">{name}</span>
+    </Link>
   );
 };
 
-const ChildSideMenu = ({ data: { href, name } }: typeSideMenu) => {
-  const pathname = usePathname();
-
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-    >
-      <Link
-        href={href}
-        className={`${
-          pathname.includes(href)
-            ? "bg-brand-50/50 text-brand-500"
-            : "text-gray-500 hover:bg-gray-50"
-        } flex h-12 items-center overflow-hidden rounded-xl px-6 text-sm font-medium duration-300`}
-      >
-        <span className="ml-3 whitespace-nowrap">{name}</span>
-      </Link>
-    </motion.div>
-  );
-};
-
-const MultiSideMenu = ({ data: { href, icon, name, items } }: typeSideMenu) => {
+const MultiSideMenu = ({
+  data: { href, icon: Icon, name, items },
+}: typeSideMenu) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const pathname = usePathname();
@@ -191,24 +159,45 @@ const MultiSideMenu = ({ data: { href, icon, name, items } }: typeSideMenu) => {
   return (
     <>
       <div
-        className={`${
-          pathname.includes(href)
-            ? "bg-brand-50/50 text-brand-500"
-            : "text-gray-500 hover:bg-gray-50"
-        } flex h-12 cursor-pointer items-center overflow-hidden rounded-xl px-3 text-sm font-medium duration-300`}
+        className={cn(
+          "flex cursor-pointer items-center gap-2 rounded-xl p-4 text-sm font-medium duration-300",
+          isOpen && "bg-gray-50 text-gray-500",
+          pathname.includes(href) && "bg-brand-50/50 text-brand-500",
+          !pathname.includes(href) && "text-gray-500 hover:bg-gray-50",
+        )}
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        {icon}
-        <span className="ml-3 whitespace-nowrap">{name}</span>
+        <Icon className="size-5 flex-none" />
+        <span className="w-full whitespace-nowrap">{name}</span>
         <IconChevronBottom
-          className={`ml-auto size-5 duration-300 ${isOpen && "rotate-180"}`}
+          className={cn("size-5 duration-300", isOpen && "rotate-180")}
         />
       </div>
       <AnimatePresence>
-        {isOpen &&
-          items?.map(({ href, name }) => (
-            <ChildSideMenu key={name} data={{ href, icon, name }} />
-          ))}
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="flex flex-col gap-1 overflow-hidden"
+          >
+            {items?.map(({ href, name }) => (
+              <Link
+                key={name}
+                href={href}
+                className={cn(
+                  "rounded-xl px-4 py-2 text-sm font-medium duration-300",
+                  pathname.includes(href)
+                    ? "text-brand-500 bg-brand-50/50"
+                    : "text-gray-500 hover:bg-gray-50",
+                )}
+              >
+                <span className="ml-8 whitespace-nowrap">{name}</span>
+              </Link>
+            ))}
+          </motion.div>
+        )}
       </AnimatePresence>
     </>
   );
