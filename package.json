@@ -1,0 +1,45 @@
+{
+  "name": "alphadev-dash-marketing",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build:tailwind": "cross-env NODE_ENV=production tailwindcss -i src/styles/globals.css -o src/styles/build.css --minify",
+    "dev": "next dev",
+    "build": "cross-env NODE_ENV=production tailwindcss -i src/styles/globals.css -o src/styles/build.css --minify && next build",
+    "start": "cross-env NODE_ENV=production && next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.16",
+    "@tinymce/tinymce-react": "^4.3.0",
+    "@types/node": "18.11.10",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.9",
+    "axios": "^1.4.0",
+    "chart.js": "^4.2.1",
+    "clsx": "^1.2.1",
+    "cross-env": "^7.0.3",
+    "framer-motion": "^7.6.19",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.4",
+    "next": "13.0.6",
+    "react": "18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "18.2.0",
+    "react-dropzone": "^14.2.3",
+    "tailwind-merge": "^1.12.0",
+    "typescript": "4.9.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "autoprefixer": "^10.4.13",
+    "eslint": "8.30.0",
+    "eslint-config-next": "13.0.7",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "postcss": "^8.4.19",
+    "prettier": "^2.8.0",
+    "prettier-plugin-tailwindcss": "^0.2.0",
+    "tailwindcss": "^3.2.4"
+  }
+}
