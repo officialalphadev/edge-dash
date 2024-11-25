@@ -13,7 +13,7 @@ export default function AppPage() {
               <h2 className="text-xl font-semibold">$3.456K</h2>
               <div className="flex items-center justify-between gap-4 text-sm">
                 <p className="text-xs">Total Profit</p>
-                <p className="font-medium text-green-500">
+                <p className="font-medium text-indigo-500">
                   +12.4% <IconChevronBottom className="inline size-4 -translate-y-1 rotate-180" />
                 </p>
               </div>

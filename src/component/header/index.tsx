@@ -8,7 +8,6 @@ import {
   DropdownTrigger,
 } from "../core/dropdown";
 import { ScrollArea } from "../core/scroll-area";
-import Image from "next/image";
 import { Switch } from "../core/switch";
 import { useColorMode } from "@/hook/use-color-mode";
 
@@ -18,12 +17,12 @@ export function Header({ setSidebar }: { setSidebar: React.Dispatch<React.SetSta
   return (
     <header className="sticky top-0 z-30 p-2">
       <div className="flex items-center gap-4 rounded-xl bg-white px-4 py-2 shadow-xl dark:bg-gray-800">
-        <div className="mr-auto flex items-center gap-2 md:hidden">
-          <button onClick={() => setSidebar(true)} className="rounded-xl bg-gray-100 p-2 dark:bg-gray-700">
-            <IconMenu className="size-4" />
-          </button>
-          <Image src="/image/alphadev-icon.png" alt="alphadev-icon" className="size-8" height={50} width={50} />
-        </div>
+        <button
+          onClick={() => setSidebar(true)}
+          className="mr-auto rounded-xl bg-gray-100 p-2 md:hidden dark:bg-gray-700"
+        >
+          <IconMenu className="size-4" />
+        </button>
         <div className="flex w-full items-center gap-2 max-md:hidden">
           <IconSearch className="size-4" />
           <input

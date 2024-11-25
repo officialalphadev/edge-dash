@@ -1,16 +1,9 @@
-import Image from "next/image";
+import { ArrowPathIcon } from "@heroicons/react/24/outline";
 
 export function InitialLoad() {
   return (
     <div className="flex h-full flex-col items-center justify-center">
-      <Image
-        src="/image/alphadev-icon.png"
-        alt="alphadev-icon"
-        className="size-20 animate-pulse"
-        height={200}
-        width={200}
-      />
-      <p className="text-xs font-semibold">Loading...</p>
+      <ArrowPathIcon className="size-12 animate-spin text-indigo-500" />
     </div>
   );
 }

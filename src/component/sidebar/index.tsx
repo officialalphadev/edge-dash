@@ -13,7 +13,7 @@ import {
   IconPortfolio,
   IconSetting,
 } from "@/asset/icon";
-import React, { SVGProps, useEffect, useState } from "react";
+import { SVGProps, useEffect, useState } from "react";
 import { cn } from "@/lib";
 import { ScrollArea } from "../core/scroll-area";
 
@@ -162,14 +162,13 @@ const MultiSideMenu = ({ data: { href, icon: Icon, name, items } }: typeSideMenu
   return (
     <>
       <div
+        onClick={() => setIsOpen((prev) => !prev)}
         className={cn(
           "flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2",
           isOpen && "bg-gray-50 dark:bg-gray-700",
-          pathname.includes(href)
-            ? "bg-indigo-500/10 text-indigo-500 dark:bg-indigo-500/10"
-            : "hover:bg-gray-50 dark:hover:bg-gray-700",
+          pathname.includes(href) && "bg-indigo-500/10 text-indigo-500 dark:bg-indigo-500/10",
+          !pathname.includes(href) && "hover:bg-gray-50 dark:hover:bg-gray-700",
         )}
-        onClick={() => setIsOpen((prev) => !prev)}
       >
         <Icon className="size-4 flex-none" />
         <span className="w-full whitespace-nowrap">{name}</span>
@@ -181,11 +180,11 @@ const MultiSideMenu = ({ data: { href, icon: Icon, name, items } }: typeSideMenu
             key={name}
             href={href}
             className={cn(
-              "block rounded-xl px-4 py-2",
+              "ml-6 block whitespace-nowrap rounded-xl px-4 py-2",
               pathname.includes(href) ? "bg-indigo-500/10 text-indigo-500" : "hover:bg-gray-50 dark:hover:bg-gray-700",
             )}
           >
-            <span className="ml-8 whitespace-nowrap">{name}</span>
+            {name}
           </Link>
         ))}
       </div>

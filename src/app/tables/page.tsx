@@ -1,14 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/component/core/card";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/component/core/table";
+import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/component/core/table";
 
 export default function TablePage() {
   return (
