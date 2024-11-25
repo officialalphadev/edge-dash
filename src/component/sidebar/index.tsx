@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
   IconChevronBottom,
+  IconChevronLeft,
   IconEvent,
   IconFaq,
   IconHome,
@@ -16,11 +17,17 @@ import {
 import React, { SVGProps, useEffect, useState } from "react";
 import { cn } from "@/lib";
 import { motion, AnimatePresence } from "framer-motion";
+import { ScrollArea } from "../core/scroll-area";
 
 const menus = [
   {
     href: "/",
     name: "Dashboard",
+    icon: IconHome,
+  },
+  {
+    href: "/tables",
+    name: "Tables",
     icon: IconHome,
   },
   {
@@ -93,11 +100,22 @@ const menus = [
   },
 ];
 
-export function DefaultSidebar() {
+export function Sidebar({
+  sidebar,
+  setSidebar,
+}: {
+  sidebar: boolean;
+  setSidebar: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-[276px] p-2">
+    <aside
+      className={cn(
+        "fixed -left-full top-0 z-40 h-screen w-[276px] p-2 duration-300 md:left-0",
+        sidebar && "left-0",
+      )}
+    >
       <div className="h-full overflow-hidden rounded-xl border bg-white">
-        <div className="flex items-center justify-center border-b p-4">
+        <div className="flex items-center justify-between border-b p-4 md:justify-center">
           <Image
             src="/image/alphadev-icon.png"
             alt="alphadev-icon"
@@ -106,13 +124,16 @@ export function DefaultSidebar() {
             width={50}
           />
           <h1 className="font-semibold">Edge Dash</h1>
+          <button onClick={() => setSidebar(false)} className="md:hidden">
+            <IconChevronLeft className="size-5" />
+          </button>
         </div>
-        <div className="h-full space-y-2 overflow-y-auto px-4 py-5 duration-300">
+        <ScrollArea className="max-h-[calc(100vh-80px)] space-y-2 p-4">
           {menus.map(({ items, ...menu }, index) => {
             if (!items) return <SingleSideMenu key={index} data={menu} />;
             return <MultiSideMenu key={index} data={{ items, ...menu }} />;
           })}
-        </div>
+        </ScrollArea>
       </div>
     </aside>
   );

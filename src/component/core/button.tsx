@@ -1,3 +1,5 @@
+"use client";
+
 import { IconLoading } from "@/asset/icon";
 import { cn } from "@/lib";
 import { MouseEventHandler } from "react";

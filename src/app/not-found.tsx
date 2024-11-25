@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function NotFound() {
   return (
-    <>
+    <div className="py-20">
       <Image
         src="/image/no-data.webp"
         alt="no-data"
@@ -16,6 +16,6 @@ export default function NotFound() {
       <p className="text-center text-sm text-gray-500">
         Coba kata kunci lainnya atau cari kata kunci berdasarkan kategori.{" "}
       </p>
-    </>
+    </div>
   );
 }

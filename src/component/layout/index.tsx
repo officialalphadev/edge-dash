@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Header } from "../header";
-import { DefaultSidebar } from "../sidebar";
+import { Sidebar } from "../sidebar";
 import { InitialLoad } from "../initial-load";
 
 export interface DefaultLayoutProps {
@@ -11,6 +11,7 @@ export interface DefaultLayoutProps {
 
 export function DefaultLayout({ children }: DefaultLayoutProps) {
   const [loading, setLoading] = useState(true);
+  const [sidebar, setSidebar] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,9 +23,9 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
 
   return (
     <>
-      <DefaultSidebar />
-      <div className="ml-[276px]">
-        <Header />
+      <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
+      <div className="duration-300 md:ml-[276px]">
+        <Header setSidebar={setSidebar} />
         <div className="mx-auto max-w-7xl p-2">{children}</div>
       </div>
     </>
