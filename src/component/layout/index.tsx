@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Header } from "../header";
 import { Sidebar } from "../sidebar";
 import { InitialLoad } from "../initial-load";
+import { useColorMode } from "@/hook/use-color-mode";
 
 export interface DefaultLayoutProps {
   children: React.ReactNode;
@@ -12,6 +13,8 @@ export interface DefaultLayoutProps {
 export function DefaultLayout({ children }: DefaultLayoutProps) {
   const [loading, setLoading] = useState(true);
   const [sidebar, setSidebar] = useState(false);
+
+  useColorMode();
 
   useEffect(() => {
     setTimeout(() => {
@@ -24,7 +27,7 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
     <>
       <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
-      <div className="duration-300 md:ml-[276px]">
+      <div className="md:ml-[276px]">
         <Header setSidebar={setSidebar} />
         <div className="mx-auto max-w-7xl p-2">{children}</div>
       </div>

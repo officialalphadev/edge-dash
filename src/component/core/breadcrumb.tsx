@@ -17,7 +17,7 @@ export function Breadcrumb({ pageName }: BreadcrumbProps) {
               Dashboard /
             </Link>
           </li>
-          <li className="text-brand-500 font-medium">{pageName}</li>
+          <li className="font-medium text-indigo-500">{pageName}</li>
         </ol>
       </nav>
     </div>

@@ -14,7 +14,7 @@ export interface AppLayoutProps {
 export default function AppLayout({ children }: AppLayoutProps) {
   return (
     <html lang="en">
-      <body className="font-poppins h-screen bg-gray-50 text-gray-800 antialiased">
+      <body className="font-poppins h-screen bg-gray-100 text-sm text-gray-600 antialiased dark:bg-gray-900 dark:text-gray-200">
         <DefaultLayout>{children}</DefaultLayout>
       </body>
     </html>

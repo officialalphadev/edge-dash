@@ -1,18 +1,6 @@
 import { IconChevronBottom, IconFlashsale } from "@/asset/icon";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/component/core/card";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/component/core/table";
+import { Card, CardContent, CardHeader, CardTitle } from "@/component/core/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/component/core/table";
 
 export default function AppPage() {
   return (
@@ -21,13 +9,12 @@ export default function AppPage() {
         {Array.from({ length: 4 }).map((_, index) => (
           <Card key={index}>
             <CardContent>
-              <IconFlashsale className="mb-4 size-10" />
-              <h2 className="text-2xl font-semibold">$3.456K</h2>
+              <IconFlashsale className="mb-4 size-8" />
+              <h2 className="text-xl font-semibold">$3.456K</h2>
               <div className="flex items-center justify-between gap-4 text-sm">
-                <p className="text-gray-500">Total Profit</p>
+                <p className="text-xs">Total Profit</p>
                 <p className="font-medium text-green-500">
-                  +12.4%{" "}
-                  <IconChevronBottom className="inline size-4 -translate-y-1 rotate-180" />
+                  +12.4% <IconChevronBottom className="inline size-4 -translate-y-1 rotate-180" />
                 </p>
               </div>
             </CardContent>
@@ -43,19 +30,19 @@ export default function AppPage() {
             <Table className="overflow-hidden rounded-lg">
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-[100px]">Invoice</TableHead>
+                  <TableHead>Invoice</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead>Method</TableHead>
-                  <TableHead className="text-right">Amount</TableHead>
+                  <TableHead>Amount</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {Array.from({ length: 5 }).map((_, index) => (
                   <TableRow key={index}>
-                    <TableCell className="font-medium">INV001</TableCell>
+                    <TableCell>INV001</TableCell>
                     <TableCell>Paid</TableCell>
                     <TableCell>Credit Card</TableCell>
-                    <TableCell className="text-right">$250.00</TableCell>
+                    <TableCell>$250.00</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -70,17 +57,17 @@ export default function AppPage() {
             <Table className="overflow-hidden rounded-lg">
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-[100px]">Invoice</TableHead>
+                  <TableHead>Invoice</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead className="text-right">Amount</TableHead>
+                  <TableHead>Amount</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {Array.from({ length: 5 }).map((_, index) => (
                   <TableRow key={index}>
-                    <TableCell className="font-medium">INV001</TableCell>
+                    <TableCell>INV001</TableCell>
                     <TableCell>Paid</TableCell>
-                    <TableCell className="text-right">$250.00</TableCell>
+                    <TableCell>$250.00</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

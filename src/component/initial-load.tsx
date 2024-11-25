@@ -10,7 +10,7 @@ export function InitialLoad() {
         height={200}
         width={200}
       />
-      <p className="text-xs font-semibold text-gray-500">Loading...</p>
+      <p className="text-xs font-semibold">Loading...</p>
     </div>
   );
 }

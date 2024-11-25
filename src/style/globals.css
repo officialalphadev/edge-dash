@@ -3,3 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::-webkit-scrollbar {
+  @apply size-0.5;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-indigo-500;
+}

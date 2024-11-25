@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -16,7 +15,6 @@ import {
 } from "@/asset/icon";
 import React, { SVGProps, useEffect, useState } from "react";
 import { cn } from "@/lib";
-import { motion, AnimatePresence } from "framer-motion";
 import { ScrollArea } from "../core/scroll-area";
 
 const menus = [
@@ -100,35 +98,22 @@ const menus = [
   },
 ];
 
-export function Sidebar({
-  sidebar,
-  setSidebar,
-}: {
+interface SidebarProps {
   sidebar: boolean;
   setSidebar: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+}
+
+export function Sidebar({ sidebar, setSidebar }: SidebarProps) {
   return (
-    <aside
-      className={cn(
-        "fixed -left-full top-0 z-40 h-screen w-[276px] p-2 duration-300 md:left-0",
-        sidebar && "left-0",
-      )}
-    >
-      <div className="h-full overflow-hidden rounded-xl border bg-white">
-        <div className="flex items-center justify-between border-b p-4 md:justify-center">
-          <Image
-            src="/image/alphadev-icon.png"
-            alt="alphadev-icon"
-            className="size-8"
-            height={50}
-            width={50}
-          />
-          <h1 className="font-semibold">Edge Dash</h1>
+    <aside className={cn("fixed -left-full top-0 z-40 h-screen w-[276px] p-2 md:left-0", sidebar && "left-0")}>
+      <div className="h-full overflow-hidden rounded-xl bg-white shadow-xl dark:bg-gray-800">
+        <div className="flex items-center justify-between border-b border-gray-200 p-4 md:justify-center dark:border-gray-700">
+          <h1 className="text-xl font-semibold text-indigo-500">Edge Dash</h1>
           <button onClick={() => setSidebar(false)} className="md:hidden">
-            <IconChevronLeft className="size-5" />
+            <IconChevronLeft className="size-4" />
           </button>
         </div>
-        <ScrollArea className="max-h-[calc(100vh-80px)] space-y-2 p-4">
+        <ScrollArea className="max-h-[calc(100vh-72px)] space-y-2 px-4 py-2">
           {menus.map(({ items, ...menu }, index) => {
             if (!items) return <SingleSideMenu key={index} data={menu} />;
             return <MultiSideMenu key={index} data={{ items, ...menu }} />;
@@ -155,20 +140,17 @@ const SingleSideMenu = ({ data: { href, icon: Icon, name } }: typeSideMenu) => {
     <Link
       href={href}
       className={cn(
-        "flex items-center gap-2 rounded-xl p-4 text-sm font-medium duration-300",
-        pathname === href && "bg-brand-50/50 text-brand-500",
-        pathname !== href && "text-gray-500 hover:bg-gray-50",
+        "flex items-center gap-2 rounded-xl px-4 py-2",
+        pathname === href ? "bg-indigo-500/10 text-indigo-500" : "hover:bg-gray-50 dark:hover:bg-gray-700",
       )}
     >
-      <Icon className="size-5" />
+      <Icon className="size-4" />
       <span className="whitespace-nowrap">{name}</span>
     </Link>
   );
 };
 
-const MultiSideMenu = ({
-  data: { href, icon: Icon, name, items },
-}: typeSideMenu) => {
+const MultiSideMenu = ({ data: { href, icon: Icon, name, items } }: typeSideMenu) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const pathname = usePathname();
@@ -181,45 +163,32 @@ const MultiSideMenu = ({
     <>
       <div
         className={cn(
-          "flex cursor-pointer items-center gap-2 rounded-xl p-4 text-sm font-medium duration-300",
-          isOpen && "bg-gray-50 text-gray-500",
-          pathname.includes(href) && "bg-brand-50/50 text-brand-500",
-          !pathname.includes(href) && "text-gray-500 hover:bg-gray-50",
+          "flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2",
+          isOpen && "bg-gray-50 dark:bg-gray-700",
+          pathname.includes(href)
+            ? "bg-indigo-500/10 text-indigo-500 dark:bg-indigo-500/10"
+            : "hover:bg-gray-50 dark:hover:bg-gray-700",
         )}
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <Icon className="size-5 flex-none" />
+        <Icon className="size-4 flex-none" />
         <span className="w-full whitespace-nowrap">{name}</span>
-        <IconChevronBottom
-          className={cn("size-5 duration-300", isOpen && "rotate-180")}
-        />
+        <IconChevronBottom className={cn("size-4", isOpen && "rotate-180")} />
       </div>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="flex flex-col gap-1 overflow-hidden"
+      <div className={cn("space-y-1 overflow-hidden", !isOpen && "hidden")}>
+        {items?.map(({ href, name }) => (
+          <Link
+            key={name}
+            href={href}
+            className={cn(
+              "block rounded-xl px-4 py-2",
+              pathname.includes(href) ? "bg-indigo-500/10 text-indigo-500" : "hover:bg-gray-50 dark:hover:bg-gray-700",
+            )}
           >
-            {items?.map(({ href, name }) => (
-              <Link
-                key={name}
-                href={href}
-                className={cn(
-                  "rounded-xl px-4 py-2 text-sm font-medium duration-300",
-                  pathname.includes(href)
-                    ? "text-brand-500 bg-brand-50/50"
-                    : "text-gray-500 hover:bg-gray-50",
-                )}
-              >
-                <span className="ml-8 whitespace-nowrap">{name}</span>
-              </Link>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <span className="ml-8 whitespace-nowrap">{name}</span>
+          </Link>
+        ))}
+      </div>
     </>
   );
 };

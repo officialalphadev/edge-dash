@@ -1,16 +1,25 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/component/core/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/component/core/table";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/component/core/table";
 
 export default function TablePage() {
   return (
     <Card>
-      <CardHeader className="p-6">
+      <CardHeader>
         <CardTitle>Top Income</CardTitle>
       </CardHeader>
-      <CardContent className="p-0">
-        <Table>
+      <CardContent>
+        <Table className="overflow-hidden rounded-lg">
           <TableHeader>
-            <TableRow className="whitespace-nowrap bg-gray-100">
+            <TableRow>
               <TableHead>Package</TableHead>
               <TableHead>Invoice date</TableHead>
               <TableHead>Status</TableHead>
@@ -29,6 +38,12 @@ export default function TablePage() {
               </TableRow>
             ))}
           </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TableCell colSpan={3}>Total</TableCell>
+              <TableCell className="text-right">$2,500.00</TableCell>
+            </TableRow>
+          </TableFooter>
         </Table>
       </CardContent>
     </Card>
