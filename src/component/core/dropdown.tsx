@@ -52,11 +52,11 @@ function DropdownTrigger({ children, className, ...props }: React.ButtonHTMLAttr
 
 function DropdownContent({ className, children }: React.HTMLAttributes<HTMLDivElement>) {
   const { isOpen } = useContext(DropdownContext);
+  if (!isOpen) return null;
   return (
     <div
       className={cn(
-        "absolute right-0 mt-2 w-48 overflow-hidden rounded-xl bg-white shadow-xl dark:bg-gray-800",
-        !isOpen && "hidden",
+        "absolute right-0 mt-2 w-48 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800",
         className,
       )}
     >

@@ -1,9 +1,15 @@
 import { Dropdown, DropdownContent, DropdownItem } from "../core/dropdown";
 import { DropdownLabel, DropdownSeparator, DropdownTrigger } from "../core/dropdown";
 import { ScrollArea } from "../core/scroll-area";
-import { Switch } from "../core/switch";
 import { useColorMode } from "@/hook/use-color-mode";
-import { Bars3Icon, BellIcon, ChevronDownIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  BellIcon,
+  ChevronDownIcon,
+  MagnifyingGlassIcon,
+  MoonIcon,
+  SunIcon,
+} from "@heroicons/react/24/outline";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 
 export function Header({ setSidebar }: { setSidebar: React.Dispatch<React.SetStateAction<boolean>> }) {
@@ -11,7 +17,7 @@ export function Header({ setSidebar }: { setSidebar: React.Dispatch<React.SetSta
 
   return (
     <header className="sticky top-0 z-30 p-2">
-      <div className="flex items-center gap-4 rounded-xl bg-white px-4 py-2 shadow-xl dark:bg-gray-800">
+      <div className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800">
         <button
           onClick={() => setSidebar(true)}
           className="mr-auto rounded-xl bg-gray-100 p-2 md:hidden dark:bg-gray-700"
@@ -26,9 +32,15 @@ export function Header({ setSidebar }: { setSidebar: React.Dispatch<React.SetSta
             className="w-full border-none bg-transparent text-sm outline-none focus:ring-0"
           />
         </div>
-        <Switch onChange={(checked) => setColorMode(checked ? "dark" : "light")} checked={colorMode === "dark"} />
+        <button
+          onClick={() => setColorMode(colorMode === "dark" ? "light" : "dark")}
+          className="rounded-xl bg-gray-100 p-2 dark:bg-gray-700"
+        >
+          {colorMode === "dark" ? <MoonIcon className="size-4" /> : <SunIcon className="size-4" />}
+        </button>
         <Dropdown>
-          <DropdownTrigger className="rounded-xl bg-gray-100 p-2 dark:bg-gray-700">
+          <DropdownTrigger className="relative rounded-xl bg-gray-100 p-2 dark:bg-gray-700">
+            <div className="absolute right-0 top-0 size-2 rounded-full bg-indigo-500" />
             <BellIcon className="size-4" />
           </DropdownTrigger>
           <DropdownContent className="right-1/2 mt-3 w-64 translate-x-1/2">

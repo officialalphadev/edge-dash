@@ -27,7 +27,7 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
     <>
       <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
-      <div className="transition-all lg:ml-[276px]">
+      <div className="lg:ml-[276px]">
         <Header setSidebar={setSidebar} />
         <div className="mx-auto max-w-7xl p-2">{children}</div>
       </div>

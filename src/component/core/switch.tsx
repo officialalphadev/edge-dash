@@ -34,7 +34,7 @@ function Switch({ checked = false, onChange, disabled, className, ...props }: Sw
     >
       <span
         className={cn(
-          "block size-5 rounded-full bg-white shadow-lg ring-0 dark:bg-gray-800",
+          "block size-5 rounded-full bg-white shadow-lg ring-0 transition-transform dark:bg-gray-800",
           isChecked ? "translate-x-5" : "translate-x-0",
         )}
       />

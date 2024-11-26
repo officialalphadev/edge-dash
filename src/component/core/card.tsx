@@ -3,7 +3,15 @@
 import { cn } from "@/lib";
 
 function Card({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("overflow-hidden rounded-xl bg-white shadow-xl dark:bg-gray-800", className)} {...props} />;
+  return (
+    <div
+      className={cn(
+        "rounded-xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800",
+        className,
+      )}
+      {...props}
+    />
+  );
 }
 
 function CardHeader({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

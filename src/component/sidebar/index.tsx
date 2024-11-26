@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib";
 import { ScrollArea } from "../core/scroll-area";
-import { ArrowRightEndOnRectangleIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import { ArrowRightEndOnRectangleIcon, ChevronDownIcon, RectangleGroupIcon } from "@heroicons/react/24/outline";
 import { ChevronLeftIcon, Squares2X2Icon, TableCellsIcon } from "@heroicons/react/24/outline";
 
 const menus = [
@@ -20,6 +20,15 @@ const menus = [
       { href: "/auth/signup", name: "Sign Up" },
     ],
   },
+  {
+    href: "ui-elements",
+    name: "UI Elements",
+    icon: RectangleGroupIcon,
+    items: [
+      { href: "/ui-elements/breadcrumbs", name: "Breadcrumbs" },
+      { href: "/ui-elements/buttons", name: "Buttons" },
+    ],
+  },
 ];
 
 interface SidebarProps {
@@ -29,10 +38,8 @@ interface SidebarProps {
 
 export function Sidebar({ sidebar, setSidebar }: SidebarProps) {
   return (
-    <aside
-      className={cn("fixed -left-full top-0 z-40 h-screen w-[276px] p-2 transition-all lg:left-0", sidebar && "left-0")}
-    >
-      <div className="h-full overflow-hidden rounded-xl bg-white shadow-xl dark:bg-gray-800">
+    <aside className={cn("fixed -left-full top-0 z-40 h-screen w-[276px] p-2 lg:left-0", sidebar && "left-0")}>
+      <div className="h-full overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
         <div className="flex items-center justify-between border-b border-gray-200 p-4 md:justify-center dark:border-gray-700">
           <h1 className="text-xl font-semibold text-indigo-500">Edge Dash</h1>
           <button onClick={() => setSidebar(false)} className="md:hidden">
@@ -104,7 +111,7 @@ const MultiSideMenu = ({ href, icon: Icon, name, items }: typeSideMenu) => {
             key={name}
             href={href}
             className={cn(
-              "ml-6 block whitespace-nowrap rounded-xl px-4 py-2",
+              "block whitespace-nowrap rounded-xl py-2 pl-10 pr-4",
               pathname.includes(href) ? "bg-indigo-500/10 text-indigo-500" : "hover:bg-gray-50 dark:hover:bg-gray-700",
             )}
           >
