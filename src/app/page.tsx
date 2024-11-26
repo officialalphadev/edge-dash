@@ -1,6 +1,6 @@
-import { IconChevronBottom, IconFlashsale } from "@/asset/icon";
 import { Card, CardContent, CardHeader, CardTitle } from "@/component/core/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/component/core/table";
+import { ArrowUpIcon, CurrencyDollarIcon } from "@heroicons/react/24/outline";
 
 export default function AppPage() {
   return (
@@ -9,12 +9,14 @@ export default function AppPage() {
         {Array.from({ length: 4 }).map((_, index) => (
           <Card key={index}>
             <CardContent>
-              <IconFlashsale className="mb-4 size-8" />
+              <div className="mb-4 w-fit rounded-xl bg-indigo-500/10 p-2">
+                <CurrencyDollarIcon className="size-8 text-indigo-500" />
+              </div>
               <h2 className="text-xl font-semibold">$3.456K</h2>
               <div className="flex items-center justify-between gap-4 text-sm">
                 <p className="text-xs">Total Profit</p>
                 <p className="font-medium text-indigo-500">
-                  +12.4% <IconChevronBottom className="inline size-4 -translate-y-1 rotate-180" />
+                  +12.4% <ArrowUpIcon className="inline size-4" />
                 </p>
               </div>
             </CardContent>

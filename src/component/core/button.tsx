@@ -1,7 +1,7 @@
 "use client";
 
-import { IconLoading } from "@/asset/icon";
 import { cn } from "@/lib";
+import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { MouseEventHandler } from "react";
 
 const ButtonSize = ["xs", "sm", "md", "lg", "xl"] as const;
@@ -85,7 +85,7 @@ export function Button({
           ["lg", "xl"].includes(size) && "text-base",
         )}
       >
-        {isLoading ? <IconLoading className="size-5 animate-spin" /> : text}
+        {isLoading ? <ArrowPathIcon className="size-5 animate-spin" /> : text}
       </span>
     </button>
   );

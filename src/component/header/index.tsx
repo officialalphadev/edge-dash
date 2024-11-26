@@ -1,15 +1,10 @@
-import { IconChevronBottom, IconMenu, IconNotification, IconSearch, IconUser } from "@/asset/icon";
-import {
-  Dropdown,
-  DropdownContent,
-  DropdownItem,
-  DropdownLabel,
-  DropdownSeparator,
-  DropdownTrigger,
-} from "../core/dropdown";
+import { Dropdown, DropdownContent, DropdownItem } from "../core/dropdown";
+import { DropdownLabel, DropdownSeparator, DropdownTrigger } from "../core/dropdown";
 import { ScrollArea } from "../core/scroll-area";
 import { Switch } from "../core/switch";
 import { useColorMode } from "@/hook/use-color-mode";
+import { Bars3Icon, BellIcon, ChevronDownIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { UserCircleIcon } from "@heroicons/react/24/solid";
 
 export function Header({ setSidebar }: { setSidebar: React.Dispatch<React.SetStateAction<boolean>> }) {
   const { colorMode, setColorMode } = useColorMode();
@@ -21,10 +16,10 @@ export function Header({ setSidebar }: { setSidebar: React.Dispatch<React.SetSta
           onClick={() => setSidebar(true)}
           className="mr-auto rounded-xl bg-gray-100 p-2 md:hidden dark:bg-gray-700"
         >
-          <IconMenu className="size-4" />
+          <Bars3Icon className="size-4" />
         </button>
         <div className="flex w-full items-center gap-2 max-md:hidden">
-          <IconSearch className="size-4" />
+          <MagnifyingGlassIcon className="size-4" />
           <input
             type="text"
             placeholder="Type to search..."
@@ -34,7 +29,7 @@ export function Header({ setSidebar }: { setSidebar: React.Dispatch<React.SetSta
         <Switch onChange={(checked) => setColorMode(checked ? "dark" : "light")} checked={colorMode === "dark"} />
         <Dropdown>
           <DropdownTrigger className="rounded-xl bg-gray-100 p-2 dark:bg-gray-700">
-            <IconNotification className="size-4" />
+            <BellIcon className="size-4" />
           </DropdownTrigger>
           <DropdownContent className="right-1/2 mt-3 w-64 translate-x-1/2">
             <DropdownLabel>Notification</DropdownLabel>
@@ -58,8 +53,8 @@ export function Header({ setSidebar }: { setSidebar: React.Dispatch<React.SetSta
               <p className="text-xs font-semibold">Rizky Maulana</p>
               <p className="text-[10px]">Developer</p>
             </div>
-            <IconUser className="size-8 rounded-xl bg-indigo-500 p-1.5 text-white" />
-            <IconChevronBottom className="size-4" />
+            <UserCircleIcon className="size-8 rounded-xl bg-indigo-500 p-1.5 text-white" />
+            <ChevronDownIcon className="size-4" />
           </DropdownTrigger>
           <DropdownContent className="mt-3">
             <DropdownItem>My Profile</DropdownItem>
