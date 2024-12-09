@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Header } from "../header";
 import { Sidebar } from "../sidebar";
-import { InitialLoad } from "../initial-load";
+import { SplashScreen } from "../splash-screen";
 import { useColorMode } from "@/hook/use-color-mode";
 
 export interface DefaultLayoutProps {
@@ -22,7 +22,7 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
     }, 3000);
   }, []);
 
-  if (loading) return <InitialLoad />;
+  if (loading) return <SplashScreen />;
 
   return (
     <>

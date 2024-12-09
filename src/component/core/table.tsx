@@ -16,15 +16,20 @@ function TableHeader({ className, ...props }: React.HTMLAttributes<HTMLTableSect
 }
 
 function TableBody({ className, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) {
-  return <tbody className={cn("divide-y divide-gray-200 text-xs dark:divide-gray-700", className)} {...props} />;
+  return <tbody className={cn("divide-y divide-gray-200 dark:divide-gray-700", className)} {...props} />;
 }
 
 function TableFooter({ className, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) {
   return <tfoot className={cn("bg-gray-100 p-4 font-medium dark:bg-gray-700", className)} {...props} />;
 }
 
-function TableRow(props: React.HTMLAttributes<HTMLTableRowElement>) {
-  return <tr {...props} />;
+function TableRow({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) {
+  return (
+    <tr
+      className={cn("data-[state=selected]:bg-gray-100 dark:data-[state=selected]:bg-gray-700", className)}
+      {...props}
+    />
+  );
 }
 
 function TableHead({ className, ...props }: React.ThHTMLAttributes<HTMLTableCellElement>) {

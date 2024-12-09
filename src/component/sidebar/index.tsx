@@ -27,6 +27,7 @@ const menus = [
     items: [
       { href: "/ui-elements/breadcrumbs", name: "Breadcrumbs" },
       { href: "/ui-elements/buttons", name: "Buttons" },
+      { href: "/ui-elements/modals", name: "Modals" },
     ],
   },
 ];
@@ -38,13 +39,13 @@ interface SidebarProps {
 
 export function Sidebar({ sidebar, setSidebar }: SidebarProps) {
   return (
-    <aside className={cn("fixed -left-full top-0 z-40 h-screen w-[276px] p-2 lg:left-0", sidebar && "left-0")}>
+    <aside
+      className={cn("fixed z-40 h-screen w-[276px] p-2 duration-150", sidebar ? "left-0" : "-left-full lg:left-0")}
+    >
       <div className="h-full overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
-        <div className="flex items-center justify-between border-b border-gray-200 p-4 md:justify-center dark:border-gray-700">
+        <div className="flex items-center justify-between border-b border-gray-200 p-4 dark:border-gray-700 md:justify-center">
           <h1 className="text-xl font-semibold text-indigo-500">Edge Dash</h1>
-          <button onClick={() => setSidebar(false)} className="md:hidden">
-            <ChevronLeftIcon className="size-4" />
-          </button>
+          <ChevronLeftIcon className="size-4 md:hidden" onClick={() => setSidebar(false)} />
         </div>
         <ScrollArea className="max-h-[calc(100vh-72px)] space-y-2 px-4 py-2">
           {menus.map(({ items, ...menu }, index) => {
@@ -103,22 +104,25 @@ const MultiSideMenu = ({ href, icon: Icon, name, items }: typeSideMenu) => {
       >
         <Icon className="size-4 flex-none" />
         <span className="w-full whitespace-nowrap">{name}</span>
-        <ChevronDownIcon className={cn("size-4", isOpen && "rotate-180")} />
+        <ChevronDownIcon className={cn("size-4 transition-transform", isOpen && "rotate-180")} />
       </div>
-      <div className={cn("space-y-1 overflow-hidden", !isOpen && "hidden")}>
-        {items?.map(({ href, name }) => (
-          <Link
-            key={name}
-            href={href}
-            className={cn(
-              "block whitespace-nowrap rounded-xl py-2 pl-10 pr-4",
-              pathname.includes(href) ? "bg-indigo-500/10 text-indigo-500" : "hover:bg-gray-50 dark:hover:bg-gray-700",
-            )}
-          >
-            {name}
-          </Link>
-        ))}
-      </div>
+      {isOpen && (
+        <div className="animate-fade space-y-1">
+          {items?.map(({ href, name }) => (
+            <Link
+              key={name}
+              href={href}
+              className={cn(
+                "block whitespace-nowrap rounded-xl py-2 pl-10 pr-4",
+                pathname.includes(href) && "bg-indigo-500/10 text-indigo-500",
+                !pathname.includes(href) && "hover:bg-gray-50 dark:hover:bg-gray-700",
+              )}
+            >
+              {name}
+            </Link>
+          ))}
+        </div>
+      )}
     </>
   );
 };

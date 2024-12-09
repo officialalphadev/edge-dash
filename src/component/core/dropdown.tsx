@@ -56,7 +56,7 @@ function DropdownContent({ className, children }: React.HTMLAttributes<HTMLDivEl
   return (
     <div
       className={cn(
-        "absolute right-0 mt-2 w-48 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800",
+        "absolute right-0 mt-2 w-48 animate-fade overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800",
         className,
       )}
     >

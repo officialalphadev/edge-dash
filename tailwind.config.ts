@@ -8,9 +8,15 @@ const config: Config = {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
+      animation: {
+        fade: "fade 150ms linear",
+      },
+      keyframes: {
+        fade: { "0%": { opacity: "0" }, "100%": { opacity: "1" } },
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 
 export default config;

@@ -1,4 +1,15 @@
+import { Button } from "@/component/core/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/component/core/card";
+import { Input } from "@/component/core/input";
+import {
+  Modal,
+  ModalContent,
+  ModalDescription,
+  ModalFooter,
+  ModalHeader,
+  ModalTitle,
+  ModalTrigger,
+} from "@/component/core/modal";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/component/core/table";
 import { ArrowUpIcon, CurrencyDollarIcon } from "@heroicons/react/24/outline";
 

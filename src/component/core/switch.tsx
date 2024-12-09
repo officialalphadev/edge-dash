@@ -13,15 +13,12 @@ function Switch({ checked = false, onChange, disabled, className, ...props }: Sw
   const [isChecked, setIsChecked] = useState(checked);
 
   function toggleSwitch() {
-    if (!disabled) {
-      const newState = !isChecked;
-      setIsChecked(newState);
-      onChange?.(newState);
-    }
+    !disabled && setIsChecked(!isChecked) && onChange?.(!isChecked);
   }
 
   return (
     <button
+      {...props}
       aria-checked={isChecked}
       onClick={toggleSwitch}
       disabled={disabled}
@@ -30,7 +27,6 @@ function Switch({ checked = false, onChange, disabled, className, ...props }: Sw
         isChecked ? "bg-indigo-500" : "bg-gray-200 dark:bg-gray-700",
         className,
       )}
-      {...props}
     >
       <span
         className={cn(
